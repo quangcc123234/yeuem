@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body class="background">
+    <div class="box">
+        <div style="display: flex; gap: 139px;">
+            <p class="shake-text"><b>🔔</b></p>
+            <p class="text fade-up"><b>✨✨🎅MERRYY XMASS🎅✨✨</b></p>
+            <p class="shake-text"><b>🎄</b></p>
+        </div>
+<p style="font-size: 25px; align-items: center;"><b>Hế lô! Không biết là giáng sinh này em đã có ai để đi chơi cùng chưa nhỉ? Nếu không thì xin chia buồn nha vì anh cũng vậy 😢. Nhưng không sao, đừng buồn nhé vì em vẫn còn có anh mà 😋. Giáng sinh này, anh sẽ tặng em một món quà :)).</b></p>
+<button id="openBtn" style="font-size: 100px; background-color: black; border-radius: 12px;" class="center">🎁</button>
+<div id="overlay">
+  <div class="modal">
+    <h2>Anh chúc em</h2>
+    <p>học thật tốt, luôn nghe lời cha mẹ, đạt được thật nhiều thành tích cao trong học tập nhé. Anh yêu em 🤭💝</p>
+    <button id="closeBtn">❌</button>
+    <div style="display: flex; gap: 275px;">
+        <p class="shake-text">🎄</p>
+        <p class="shake-text">🌟</p>
+    </div> 
+    </div>
+
+<style>
+.shake-text {
+  display: inline-block;
+  animation: shake 0.8s infinite;
+  font-size: 50px;
+}
+
+.shake-text:hover {
+    cursor: default;
+    scale: 1.2;
+}
+
+@keyframes shake {
+  0%   { transform: rotate(0deg); }
+  25%  { transform: rotate(3deg); }
+  50%  { transform: rotate(0deg); }
+  75%  { transform: rotate(-3deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.background {
+    background-color: #1E1E20;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont,
+             "Segoe UI", Roboto, "Helvetica Neue",
+             Arial, "Noto Sans", sans-serif;
+    color: white;
+    font-size: 16px;
+line-height: 1.6;
+letter-spacing: 0.2px;
+font-weight: 400;
+}
+
+.box {
+  padding: 0 auto;              /* TẠO KHOẢNG CHO CHỮ */
+  background: #0000007f;        /* nền hộp */
+  color: #fff;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1200px;
+  height: 600px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  border-radius: 12px;
+  box-sizing: border-box;     /* QUAN TRỌNG */
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.text {
+    font-size: 50px;
+}
+.text:hover {
+    cursor: default;
+    scale: 1.1;
+}
+
+.center {
+  position: fixed;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);  
+}
+.center:hover {
+    scale: 1.1;
+    cursor: pointer;
+}
+.center:active {
+    scale: 1.0;
+}
+
+/* Overlay làm mờ nền */
+#overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+
+  display: none; /* ẩn ban đầu */
+  justify-content: center;
+  align-items: center;
+
+  z-index: 1000;
+}
+
+/* Box nội dung */
+.modal {
+  width: 400px;
+  padding: 20px;
+  background: #1e1e20;
+  color: #fff;
+
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+
+  animation: fadeUp 0.4s ease;
+}
+
+/* Fade up */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+</style>
+<script>
+  const openBtn = document.getElementById("openBtn");
+  const closeBtn = document.getElementById("closeBtn");
+  const overlay = document.getElementById("overlay");
+
+  openBtn.onclick = () => {
+    overlay.style.display = "flex";
+  };
+
+  closeBtn.onclick = () => {
+    overlay.style.display = "none";
+  };
+
+  // Click ra ngoài box để đóng
+  overlay.onclick = (e) => {
+    if (e.target === overlay) {
+      overlay.style.display = "none";
+    }
+  };
+</script>
+
+</body>
+</html>
